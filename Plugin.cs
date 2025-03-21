@@ -1,4 +1,5 @@
-﻿using BepInEx;
+﻿using System;
+using BepInEx;
 using BepInEx.Configuration;
 using BepInEx.Logging;
 using HarmonyLib;
@@ -14,7 +15,7 @@ public class PunFixedRegionPlugin : BaseUnityPlugin
 
     internal new static ManualLogSource Logger;
     internal static ConfigEntry<bool> Enabled;
-    internal static ConfigEntry<string> Region;
+    internal static ConfigEntry<PhotonRegions> Region;
     
     private readonly Harmony _harmony = new(PluginGuid);
 
@@ -41,8 +42,8 @@ public class PunFixedRegionPlugin : BaseUnityPlugin
         Region = Config.Bind(
             "General",
             "Region",
-            "",
-            "Empty is default. (https://doc.photonengine.com/pun/current/connection-and-authentication/regions)"
+            PhotonRegions.BestServer,
+            "https://doc.photonengine.com/pun/current/connection-and-authentication/regions"
         );
     }
 }

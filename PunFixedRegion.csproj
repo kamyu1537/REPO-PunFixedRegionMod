@@ -44,6 +44,7 @@
 
   <ItemGroup>
     <None Include="README.md" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="CHANGELOG.md" CopyToOutputDirectory="PreserveNewest" />
     <None Include="manifest.json" CopyToOutputDirectory="PreserveNewest" />
     <None Include="icon.png" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
@@ -58,6 +59,7 @@
     
     <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(OutputFolder)" />
     <Copy SourceFiles="README.md" DestinationFolder="$(OutputFolder)" Condition="Exists('README.md')" />
+    <Copy SourceFiles="CHANGELOG.md" DestinationFolder="$(OutputFolder)" Condition="Exists('CHANGELOG.md')" />
     <Copy SourceFiles="manifest.json" DestinationFolder="$(OutputFolder)" Condition="Exists('manifest.json')" />
     <Copy SourceFiles="icon.png" DestinationFolder="$(OutputFolder)" Condition="Exists('icon.png')" />
 

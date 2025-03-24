@@ -5,7 +5,7 @@
 * Nothing
 
 # 1.1.0
-* Enum 으로 리전 설정 변경
+* Change region settings to use Enum
 
 # 1.0.0
 * First release

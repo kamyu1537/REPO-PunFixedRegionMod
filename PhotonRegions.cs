@@ -7,7 +7,7 @@ public enum PhotonRegions
     Australia,
     // Canada_East,
     // Chinese_Mainland,
-    // Europe,
+    Europe,
     // HongKong,
     // India,
     Japan,

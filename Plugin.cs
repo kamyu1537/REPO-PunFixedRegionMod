@@ -11,7 +11,7 @@ public class PunFixedRegionPlugin : BaseUnityPlugin
 {
     private const string PluginGuid = "PunFixedRegion";
     private const string PluginName = "PunFixedRegion";
-    private const string PluginVersion = "1.1.1";
+    private const string PluginVersion = "1.1.2";
 
     internal new static ManualLogSource Logger;
     internal static ConfigEntry<bool> Enabled;

@@ -22,7 +22,7 @@ internal class PhotonRegion
     internal static readonly PhotonRegion Australia = new(PhotonRegions.Australia, "au");
     // internal static readonly PhotonRegion Canada_East = new(PhotonRegions.Canada_East, "cae");
     // internal static readonly PhotonRegion Chinese_Mainland = new(PhotonRegions.Chinese_Mainland, "cn");
-    // internal static readonly PhotonRegion Europe = new(PhotonRegions.Europe, "eu");
+    internal static readonly PhotonRegion Europe = new(PhotonRegions.Europe, "eu");
     // internal static readonly PhotonRegion HongKong = new(PhotonRegions.HongKong, "hk");
     // internal static readonly PhotonRegion India = new(PhotonRegions.India, "in");
     internal static readonly PhotonRegion Japan = new(PhotonRegions.Japan, "jp");

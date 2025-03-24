@@ -1,6 +1,6 @@
 ﻿{
   "name": "PunFixedRegion",
-  "version_number": "1.1.1",
+  "version_number": "1.1.2",
   "website_url": "https://github.com/kamyu1537/REPO-PunFixedRegionMod.git",
   "description": "Change host lobby fixed region",
   "dependencies": [

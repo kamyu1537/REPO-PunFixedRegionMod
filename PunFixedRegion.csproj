@@ -46,7 +46,7 @@
     <None Include="README.md" CopyToOutputDirectory="PreserveNewest" />
     <None Include="CHANGELOG.md" CopyToOutputDirectory="PreserveNewest" />
     <None Include="manifest.json" CopyToOutputDirectory="PreserveNewest" />
-    <None Include="icon.png" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="Assets/icon.png" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
   <Target Name="CopyToOutput" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">
@@ -61,7 +61,7 @@
     <Copy SourceFiles="README.md" DestinationFolder="$(OutputFolder)" Condition="Exists('README.md')" />
     <Copy SourceFiles="CHANGELOG.md" DestinationFolder="$(OutputFolder)" Condition="Exists('CHANGELOG.md')" />
     <Copy SourceFiles="manifest.json" DestinationFolder="$(OutputFolder)" Condition="Exists('manifest.json')" />
-    <Copy SourceFiles="icon.png" DestinationFolder="$(OutputFolder)" Condition="Exists('icon.png')" />
+    <Copy SourceFiles="Assets/icon.png" DestinationFolder="$(OutputFolder)" Condition="Exists('Assets/icon.png')" />
 
     <Delete Files="$(ZipFileName)" Condition="Exists('$(ZipFileName)')" />
     <ZipDirectory SourceDirectory="$(OutputFolder)" DestinationFile="$(ZipFileName)" />

@@ -1,28 +1,26 @@
-﻿using System;
-using BepInEx;
+﻿using BepInEx;
 using BepInEx.Configuration;
 using BepInEx.Logging;
 using HarmonyLib;
+using PunFixedRegion.Common;
+using PunFixedRegion.Patches;
 
 namespace PunFixedRegion;
 
-[BepInPlugin(PluginGuid, PluginName, PluginVersion)]
+[BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION)]
 public class PunFixedRegionPlugin : BaseUnityPlugin
 {
-    private const string PluginGuid = "PunFixedRegion";
-    private const string PluginName = "PunFixedRegion";
-    private const string PluginVersion = "1.1.2";
 
     internal new static ManualLogSource Logger;
     internal static ConfigEntry<bool> Enabled;
-    internal static ConfigEntry<PhotonRegions> Region;
+    internal static ConfigEntry<EPhotonRegion> Region;
     
-    private readonly Harmony _harmony = new(PluginGuid);
+    private readonly Harmony _harmony = new(MyPluginInfo.PLUGIN_GUID);
 
     private void Awake()
     {
         Logger = base.Logger;
-        Logger.LogInfo($"Plugin {PluginGuid} is loaded!");
+        Logger.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} is loaded!");
 
         SetupConfiguration();
 
@@ -42,7 +40,7 @@ public class PunFixedRegionPlugin : BaseUnityPlugin
         Region = Config.Bind(
             "General",
             "Region",
-            PhotonRegions.BestServer,
+            EPhotonRegion.BestServer,
             "https://doc.photonengine.com/pun/current/connection-and-authentication/regions"
         );
     }

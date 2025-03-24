@@ -1,6 +1,6 @@
-﻿namespace PunFixedRegion;
+﻿namespace PunFixedRegion.Common;
 
-public enum PhotonRegions
+public enum EPhotonRegion
 {
     BestServer,
     Asia,

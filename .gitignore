@@ -399,3 +399,5 @@ FodyWeavers.xsd
 *.sln.iml
 
 .idea/
+output/
+*.zip

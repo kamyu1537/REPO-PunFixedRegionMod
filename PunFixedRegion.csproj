@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <Product>PunFixedRegion</Product>
-    <Version>1.0.0</Version>
+    <Version>1.1.2</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
     <RestoreAdditionalProjectSources>
@@ -16,6 +16,7 @@
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -40,4 +41,27 @@
       <HintPath>C:\Program Files (x86)\Steam\steamapps\common\REPO\REPO_Data\Managed\PhotonUnityNetworking.dll</HintPath>
     </Reference>
   </ItemGroup>
+
+  <ItemGroup>
+    <None Include="README.md" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="manifest.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="icon.png" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <Target Name="CopyToOutput" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">
+    <PropertyGroup>
+      <OutputFolder>$(SolutionDir)output</OutputFolder>
+      <ZipFileName>$(Product).$(Version).zip</ZipFileName>
+    </PropertyGroup>
+
+    <MakeDir Directories="$(OutputFolder)" Condition="!Exists('$(OutputFolder)')" />
+    
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(OutputFolder)" />
+    <Copy SourceFiles="README.md" DestinationFolder="$(OutputFolder)" Condition="Exists('README.md')" />
+    <Copy SourceFiles="manifest.json" DestinationFolder="$(OutputFolder)" Condition="Exists('manifest.json')" />
+    <Copy SourceFiles="icon.png" DestinationFolder="$(OutputFolder)" Condition="Exists('icon.png')" />
+
+    <Delete Files="$(ZipFileName)" Condition="Exists('$(ZipFileName)')" />
+    <ZipDirectory SourceDirectory="$(OutputFolder)" DestinationFile="$(ZipFileName)" />
+  </Target>
 </Project>

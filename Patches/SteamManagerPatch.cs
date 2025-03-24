@@ -1,7 +1,8 @@
 ﻿using HarmonyLib;
 using Photon.Pun;
+using PunFixedRegion.Common;
 
-namespace PunFixedRegion;
+namespace PunFixedRegion.Patches;
 
 internal class SteamManagerPatch
 {
@@ -20,7 +21,11 @@ internal class SteamManagerPatch
             region = PhotonRegion.BestServer;
         }
         
-        if (currentFixedRegion == region.Value) return true;
+        if (currentFixedRegion == region.Value) {
+            PunFixedRegionPlugin.Logger.LogInfo($"Photon Fixed Region is already set to: \"{region.Value}\"");
+            return true;
+        }
+
         PhotonNetwork.PhotonServerSettings.AppSettings.FixedRegion = region.Value;
         PunFixedRegionPlugin.Logger.LogInfo($"Photon Fixed Region changed!: \"{currentFixedRegion}\" -> \"{region.Value}\"");
 
